@@ -2,7 +2,7 @@
     Fix the mouse selection
 */
 
-let rowsN = 70;
+let rowsN = 75;
 let colN = 140;
 let offset = 30;
 
@@ -31,7 +31,7 @@ for(let i=0;i<rowsN+offset;i++){
 
 function toggle(event){
     if(!flag || !flagDot)return;
-    if((event.target).className == "alive")/*(event.target).className =  "dead";*/flagDot=flagDot;
+    if((event.target).className == "alive")flagDot=flagDot;
     else (event.target).className = "alive"
     flagDot=false;
 }
