@@ -1,14 +1,27 @@
+:root{
+    --gridColor:grey;
+    --gridWeight:1px;
+}
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: black;
+    padding:0;
+    margin:0;
 }
 table{
-   background-color: black;
-   margin:auto;
-   box-sizing:border-box;
-   border-collapse:collapse;
+    background-color: black;
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-55%);
+    box-sizing:border-box; 
+    border-collapse:collapse;
+    outline:1.5px solid white;
 }
 td{
-    border: 1px solid grey;
+    border: var(--gridWeight) solid var(--gridColor);
     width: 1vh;
     height: 1vh;
     margin:0;
@@ -21,13 +34,158 @@ td.alive{
 td.dead{
     background-color:black;
 }
-Button{
-    background-color:lightblue;
+p{
+    margin:0;
 }
-#Buttons{
-    display:inline-flex;
-    position:relative;
+.popup{
+    word-wrap:break-word;
+    background-color:grey;
+    z-index:1;
+    position:absolute;
+    top:130vh; 
     left:50%;
-    transform:translateX(-50%);
+    transform: translateX(-50%);
+    width:30vw;
+    height:30vh;
+    display:none;
+    text-align:center;
 }
-
+.popup >button{
+    display:block;
+    margin:auto;
+    
+}
+.popup > p{
+    font-size:3vh;
+    margin-top:2vh;
+    margin-bottom:0.5vh;
+}
+textarea{
+    height:15vh;
+    width:20vw;
+}
+div#GameOfLife{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    width: 100vw;
+    max-width:100%;
+    height: 100vh;
+}
+div#Home{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background: black;
+    width: 100vw;
+    max-width:100%;
+    height: 100vh;
+}
+div#Home>div{
+    transition: visibility 1s;
+}
+div#Home>div.display{
+    color:white;
+    font-size:2em;
+}
+#mainTitle{
+    color:white;
+    font-size: 10vw;
+    text-align:center;
+    position:relative;
+    top:50%;
+    bottom:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.mainNav{
+    list-style-type:none;
+    overflow:hidden;
+    background-color:white;
+    padding:0;
+    margin:0;
+    height:6vh;
+}
+.mainNav>li{
+    float:left;
+    width:20%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:3vh;
+    transition: all 0.5s;
+}
+.mainNav>li.selected{
+    background-color:black;
+    color:white;
+}
+.mainNav>li:hover:not(.selected){
+    background-color:grey;
+    cursor:pointer;
+}
+#downButton{
+    color:white;
+    position:absolute;
+    bottom:6vh;
+    left:50%;
+    transform: translateX(-50%);
+    text-decoration:none;
+    font-size:3vh;
+    transition: all 0.2s;
+}
+#downButton:hover{
+    font-size:5vh;
+}
+.optionsNav{
+    list-style-type:none;
+    overflow:hidden;
+    background-color:white;
+    padding:0;
+    margin:0;
+    height:6vh;
+}
+.optionsNav>li{
+    float:left;
+    width:16.66%;
+    height:100%;
+    font-size:3vh;
+    transition: all 0.5s;
+    box-sizing:border-box;  
+    text-align:center;
+}
+.optionsNav Button{
+    width:100%;
+    height:100%;
+    font-size:2.5vh;
+    background-color:white;
+    border:0;
+    transition:all .5s;
+}
+.optionsNav Button:hover{
+    cursor:pointer;
+    background-color:grey;
+}
+.dropdownButton{
+    cursor:pointer;
+    display:inline-block;
+}
+.dropdown{
+    display:inline-block;
+    
+}
+.dropdownContent{
+    display:none;
+    position:absolute;
+    top:106vh;
+    background-color:grey;
+    min-width:16.66%;
+    z-index:2;
+}
+.dropdownContent button{
+    color:black;
+    display:block;
+}
+.dropdown:hover .dropdownContent{
+    display: block;
+}

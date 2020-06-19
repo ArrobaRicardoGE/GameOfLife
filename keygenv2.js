@@ -1,7 +1,7 @@
 class KeyGenV2{
     constructor(n,m,of){
         if(typeof(n)=="string"){
-            this.key=string;
+            this.key=n;
         }
         else{
             let ant = document.getElementById(of/2+"-"+of/2).className=="alive"?"dead":"alive";
@@ -26,7 +26,7 @@ class KeyGenV2{
             }
         }
     }
-    buildpattern(n,m,of){
+    buildPattern(n,m,of){
         let iostring="";
         for(let i=0;i<this.key.length;i++){
             let act=this.key[i];
