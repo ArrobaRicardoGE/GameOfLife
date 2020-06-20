@@ -47,17 +47,16 @@ p{
     transform: translateX(-50%);
     width:30vw;
     height:30vh;
-    display:none;
     text-align:center;
+    display:none;
 }
 .popup >button{
     display:block;
     margin:auto;
-    
 }
 .popup > p{
     font-size:3vh;
-    margin-top:2vh;
+    margin-top:0.5vh;
     margin-bottom:0.5vh;
 }
 textarea{
@@ -147,7 +146,7 @@ div#Home>div.display{
 }
 .optionsNav>li{
     float:left;
-    width:16.66%;
+    width:20%;
     height:100%;
     font-size:3vh;
     transition: all 0.5s;
@@ -179,7 +178,8 @@ div#Home>div.display{
     position:absolute;
     top:106vh;
     background-color:grey;
-    min-width:16.66%;
+    width:20%;
+    height:4vh;
     z-index:2;
 }
 .dropdownContent button{
@@ -188,4 +188,54 @@ div#Home>div.display{
 }
 .dropdown:hover .dropdownContent{
     display: block;
+}
+.library{
+    display:none;
+    position:absolute;
+    top:120vh;
+    left:50%;
+    transform:translateX(-50%);
+    width:50vw;
+    height:50vh;
+    background-color:white;
+    text-align:center;
+    padding:2vh;
+    overflow:scroll;
+}
+.librarySectionBtn{
+    width:100%;
+    height:6vh;    
+}
+.librarySectionBtn:hover{
+    cursor:pointer;
+}
+.librarySection{
+    border:1px solid black;
+    max-height:0;
+    overflow:hidden;
+    transition:all .3s ease-out;
+}
+.libraryElement{
+    width:10vh;
+    height:10vh;
+    position:inline;
+    float:left;
+    border:1px solid black;
+}
+.libraryElement:hover{
+    cursor:pointer;
+    border-color:white;
+}
+.exit{
+    display:inline;
+    margin-right:0;
+    padding:0;
+    position:relative;
+    left:45%;
+    font-size:30px;
+    font-weight:bold;
+}
+.exit:hover{
+    cursor:pointer;
+    color:red;
 }

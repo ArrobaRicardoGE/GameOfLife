@@ -37,7 +37,6 @@
                         </div>
                     </li>
                     <li><button id="Begin">Begin</button></li>
-                    <li><button id="Pause">Pause</button></li>
                     <li><button id="Reset">Reset</button></li>
                     <li><button id="Clear">Clear</button></li>
                     <li class="dropdown">
@@ -47,16 +46,50 @@
                         </div>
                 </ul>
             </navbar>
+            <!-- <div>
+                <p style="color:white;display:inline;position:relative;left:0;">Population: <span>-</span> </p>
+                <p style="color:white;display:inline;position:relative;left:100%;">Generation: <span>-</span> </p>
+            </div> -->
         </div>
         <div class="popup" id="GeneratedKey">
+            <p class="exit">&times;</p>
             <p>Generated Key:</p>
             <textarea id="keyDisplay"></textarea>
             <button id="Copy">Copy</button>
         </div>
         <div class="popup" id="LoadKey">
+            <p class="exit">&times;</p>
             <p>Load Key:</p>
             <textarea id="keySubmit"placeholder="Key"></textarea>
             <button id="Submit">Load</button>
+        </div>
+        <div class="library">
+            <p class="exit">&times;</p>
+            <p>Library</p>
+            <button class="librarySectionBtn">Still lifes</button>
+            <div class="librarySection">
+                
+            </div>
+            <button class="librarySectionBtn">Oscillators</button>
+            <div class="librarySection">
+        
+            </div>
+            <button class="librarySectionBtn">Spaceships</button>
+            <div class="librarySection">                
+
+            </div>
+            <button class="librarySectionBtn">Methuselah</button>
+            <div class="librarySection">                
+
+            </div>
+            <button class="librarySectionBtn">Infinite Growth</button>
+            <div class="librarySection">                
+
+            </div>
+            <button class="librarySectionBtn">Other</button>
+            <div class="librarySection">                
+
+            </div>
         </div>
         <script src="keygenv2.js"></script>
         <script src="main.js"></script>

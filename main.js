@@ -1,6 +1,5 @@
 /*
-    When one popup appears, close the other one
-    If I pause it resets the localSave
+    Expand the library
 */
 
 let rowsN = 75;
@@ -23,22 +22,9 @@ for(let i=0;i<rowsN+offset;i++){
         if(i<offset/2 || i>=rowsN+offset/2 || j<offset/2 || j>=colN+offset/2)
             cell.style.display="none"
         cell.addEventListener("mousemove",toggle);
-        cell.addEventListener("mouseout",function(){
-            if(flag)flagDot=true;
-        });
-        cell.addEventListener("click",event=>{
-            if((event.target).className == "alive")(event.target).className =  "dead";
-            else (event.target).className = "alive"
-        });
         cell.className = "dead";
         cell.id = i+"-"+j;
     }
-}
-function toggle(event){
-    if(!flag || !flagDot)return;
-    if((event.target).className == "alive")gitflagDot=flagDot;
-    else (event.target).className = "alive"
-    flagDot=false;
 }
 
 function verifyState(i,j){
@@ -55,7 +41,8 @@ function resetBoard(){
 }
 
 function frame(){
-    change = [];
+    let change = [];
+    let population=0,generation=0;
     for(let i=0;i<rowsN+offset;i++){
         for(let j=0;j<colN+offset;j++){
             let alive=0;
@@ -67,9 +54,14 @@ function frame(){
             if(verifyState(i+1,j-1))alive++;
             if(verifyState(i-1,j+1))alive++;
             if(verifyState(i-1,j-1))alive++;
+            population+=alive;
             if(document.getElementById(i+"-"+j).className == "dead" && alive==3)change.push((i+"-"+j));
             else if(document.getElementById(i+"-"+j).className == "alive" && alive!=2 && alive!=3)change.push((i+"-"+j));
         }
+    }
+    if(change.length == 0){
+        window.cancelAnimationFrame(returnVal);
+        document.getElementById("Begin").textContent="Begin";
     }
     for(let i=0;i<change.length;i++){
         //console.log(change[i]);
@@ -78,19 +70,31 @@ function frame(){
     }
     returnVal = window.requestAnimationFrame(frame);
 }
-document.addEventListener("mousedown",function(){
+function toggle(event){
+    if(!flag)return;
+    if((event.target).className != "alive")(event.target).className = "alive"
+}
+
+table.addEventListener("mousedown",function(event){
     flag=true;
+    if((event.target).className == "alive")(event.target).className =  "dead";
+    else (event.target).className = "alive"
 });
-document.addEventListener("mouseup",function(){
+table.addEventListener("mouseup",function(){
     flag=false;
-});
-document.getElementById("Begin").addEventListener("click",function(){
-    returnVal = returnVal = window.requestAnimationFrame(frame);
-    document.getElementById("Begin").textContent="Resume";
     localSave = new KeyGenV2(rowsN,colN,offset);
 });
-document.getElementById("Pause").addEventListener("click",function(){
-    window.cancelAnimationFrame(returnVal);
+
+document.getElementById("Begin").addEventListener("click",function(){
+    if(this.textContent=="Begin"){
+        returnVal = returnVal = window.requestAnimationFrame(frame);
+        this.textContent="Stop";
+        if(localSave.key=="O2903")localSave = new KeyGenV2(rowsN,colN,offset);
+    }
+    else{
+        window.cancelAnimationFrame(returnVal);
+        this.textContent="Begin";
+    }
 });
 document.getElementById("Clear").addEventListener("click",function(){
     window.cancelAnimationFrame(returnVal);
@@ -122,6 +126,9 @@ document.getElementById("Copy").addEventListener("click",function(){
     document.getElementById("keyDisplay").select();
     document.execCommand("copy");
     document.getElementById("GeneratedKey").style="display:none;";
+});
+document.getElementById("Library").addEventListener("click",function(){
+    document.getElementsByClassName("library")[0].style.display="block";
 });
 let showGrid=true;
 document.getElementById("Grid").addEventListener("click",function(){
@@ -174,4 +181,17 @@ function changePage(e){
             document.getElementById("contactDisplay").style="display:block;";
             document.getElementById("contact").className="selected";
     }
+}
+let libraryContentBtns = document.getElementsByClassName("librarySectionBtn");
+for(let i=0;i<libraryContentBtns.length;i++){
+    libraryContentBtns[i].addEventListener("click",function(){
+        let libraryContent = this.nextElementSibling;
+        libraryContent.style.maxHeight = (libraryContent.style.maxHeight == "0px" || libraryContent.style.maxHeight == 0)?libraryContent.scrollHeight+"px":0;
+    })
+}
+let exitBtns = document.getElementsByClassName("exit");
+for(let i=0;i<exitBtns.length;i++){
+    exitBtns[i].addEventListener("click",function(){
+        this.parentNode.style.display="none";
+    });
 }
