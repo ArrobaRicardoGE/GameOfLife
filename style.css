@@ -222,9 +222,26 @@ div#Home>div.display{
     float:left;
     border:1px solid black;
 }
+.libraryElement > img{
+    width:10vh;
+    height:10vh;
+}
+.libraryElement > p{
+    position:relative;
+    z-index:2;
+    bottom:7vh;
+    visibility:hidden;
+    color:white;
+    background-color: rgba(0,0,0,.5);
+    word-wrap:break-word;
+    font-size:.8vw;
+}
 .libraryElement:hover{
     cursor:pointer;
     border-color:white;
+}
+.libraryElement:hover > p{
+    visibility: visible;
 }
 .exit{
     display:inline;

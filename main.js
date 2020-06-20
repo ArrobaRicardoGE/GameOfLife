@@ -87,7 +87,7 @@ table.addEventListener("mouseup",function(){
 
 document.getElementById("Begin").addEventListener("click",function(){
     if(this.textContent=="Begin"){
-        returnVal = returnVal = window.requestAnimationFrame(frame);
+        returnVal = window.requestAnimationFrame(frame);
         this.textContent="Stop";
         if(localSave.key=="O2903")localSave = new KeyGenV2(rowsN,colN,offset);
     }
@@ -119,6 +119,8 @@ document.getElementById("Load").addEventListener("click",function(){
 });
 document.getElementById("Submit").addEventListener("click",function(){
     let keyLoad = new KeyGenV2(document.getElementById("keySubmit").value);
+    localSave = keyLoad;
+    resetBoard();
     keyLoad.buildPattern(rowsN,colN,offset);
     document.getElementById("LoadKey").style="display:none;";
 });
@@ -193,5 +195,14 @@ let exitBtns = document.getElementsByClassName("exit");
 for(let i=0;i<exitBtns.length;i++){
     exitBtns[i].addEventListener("click",function(){
         this.parentNode.style.display="none";
+    });
+}
+let libraryElements = document.getElementsByClassName("libraryElement");
+for(let i=0;i<libraryElements.length;i++){
+    libraryElements[i].addEventListener("click",function(){
+        let pat = new KeyGenV2(this.id);
+        resetBoard();
+        pat.buildPattern(rowsN,colN,offset);
+        document.getElementsByClassName("library")[0].style.display="none";
     });
 }
