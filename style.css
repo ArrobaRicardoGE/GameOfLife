@@ -80,12 +80,8 @@ div#Home{
     max-width:100%;
     height: 100vh;
 }
-div#Home>div{
-    transition: visibility 1s;
-}
 div#Home>div.display{
     color:white;
-    font-size:2em;
 }
 #mainTitle{
     color:white;
@@ -216,15 +212,15 @@ div#Home>div.display{
     transition:all .3s ease-out;
 }
 .libraryElement{
-    width:10vh;
-    height:10vh;
+    width:15vh;
+    height:15vh;
     position:inline;
     float:left;
     border:1px solid black;
 }
 .libraryElement > img{
-    width:10vh;
-    height:10vh;
+    width:15vh;
+    height:15vh;
 }
 .libraryElement > p{
     position:relative;
@@ -255,4 +251,20 @@ div#Home>div.display{
 .exit:hover{
     cursor:pointer;
     color:red;
+}
+.message{
+    max-width:0vw;
+    overflow:hidden;
+    height:10vh;
+    background-color:white;
+    z-index:2;
+    position:absolute;
+    transform:translateY(-100%);
+    right:0;
+    text-align:center;
+    transition: all 1s ease-out;
+}
+.message > p{
+    width:30vw;
+    margin-top:3vh
 }

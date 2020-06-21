@@ -121,13 +121,14 @@ document.getElementById("Submit").addEventListener("click",function(){
     let keyLoad = new KeyGenV2(document.getElementById("keySubmit").value);
     localSave = keyLoad;
     resetBoard();
-    keyLoad.buildPattern(rowsN,colN,offset);
+    showMsg(keyLoad.buildPattern(rowsN,colN,offset));
     document.getElementById("LoadKey").style="display:none;";
 });
 document.getElementById("Copy").addEventListener("click",function(){
     document.getElementById("keyDisplay").select();
     document.execCommand("copy");
     document.getElementById("GeneratedKey").style="display:none;";
+    showMsg("Copied to clipboard!");
 });
 document.getElementById("Library").addEventListener("click",function(){
     document.getElementsByClassName("library")[0].style.display="block";
@@ -144,6 +145,9 @@ document.getElementById("Grid").addEventListener("click",function(){
         document.documentElement.style.setProperty("--gridWeight","1px");
         showGrid=true;
     }
+});
+document.getElementById("Msg").addEventListener("click",function(){
+    allowMsg = allowMsg?false:true;
 });
 document.getElementById("what").addEventListener("click",changePage);
 document.getElementById("conway").addEventListener("click",changePage);
@@ -205,4 +209,11 @@ for(let i=0;i<libraryElements.length;i++){
         pat.buildPattern(rowsN,colN,offset);
         document.getElementsByClassName("library")[0].style.display="none";
     });
+}
+let allowMsg = true;
+function showMsg(msg){
+    if(!allowMsg)return;
+    document.getElementById("message").childNodes[1].textContent=msg;
+    document.getElementById("message").style.maxWidth = "30vw";
+    setTimeout(function(){document.getElementById("message").style.maxWidth = "0";},4000)
 }

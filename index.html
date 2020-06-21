@@ -19,7 +19,10 @@
                 </ul>
             </navbar>
             <div id="mainTitle">Conway's<br>Game of Life</div>
-            <div class="display" id="whatDisplay" style="display:none;">whatDisplay</div>
+            <div class="display" id="whatDisplay" style="display:none;">
+                <h1>The Game of life</h1>
+                <p>The Game of Life is a cellular automaton created by the British mathematician John Horton Conway in 1970.</p>
+            </div>
             <div class="display" id="conwayDisplay" style="display:none;">conwayDisplay</div>
             <div class="display" id="supportDisplay" style="display:none;">supportDisplay</div>
             <div class="display" id="contactDisplay" style="display:none;">contactDisplay</div>
@@ -43,6 +46,7 @@
                         <button class=dropdownButton>Settings</button>
                         <div class="dropdownContent" style="right:0;">
                             <button id="Grid">Grid</button>
+                            <button id="Msg">Allow Messages</button>
                         </div>
                 </ul>
             </navbar>
@@ -200,6 +204,9 @@
                     <p>Crown</p>
                 </div>
             </div>
+        </div>
+        <div class="message" id="message">
+            <p></p>
         </div>
         <script src="keygenv2.js"></script>
         <script src="main.js"></script>
