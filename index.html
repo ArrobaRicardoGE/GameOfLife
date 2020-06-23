@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Raleway:wght@600&family=Roboto&display=swap" rel="stylesheet">    
         <!-- <link rel="stylesheet" href="/Assets/fontawesome-free-5.13.1-web/css/all.css" > -->
-        <script src="https://kit.fontawesome.com/48cc1ed70f.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/48cc1ed70f.js" crossorigin="anonymous" SameSite="none"></script>
         <link rel="stylesheet" href="/Assets/fontello-d209e484/css/fontello.css" >
     </head>    
     <body id="body">
@@ -24,28 +24,28 @@
             </navbar>
             <div id="mainTitle">Conway's<br>Game of Life</div>
             <div class="display" id="whatDisplay" style="display:none;">
-                <h1>The Game of life</h1>
-                <p>The Game of Life is a cellular automaton created by the British mathematician John Horton Conway in 1970.</p>
-                <p>
-                    It is a simple game in which you are able to decide the inital state of the cells in the Universe. 
-                    Each cell has two states: alive or dead.<br>The rules for each cell are rather simple: if a cell has two or three 
-                    neighbors alive, it survives to the next generation. Otherwise, it dies due to overpopulation or lonliness.
+                <h1>Game of Life</h1>
+                <p style="width:40%;margin-top:18vh;">The Game of Life (or just "Life") is a cellular automaton created by the British mathematician John Horton Conway in 1970.<br>
+                    It is a simple game in which you are able to decide the inital state of some cells in the universe and watch the evolution of the population through 
+                    several (maybe infinite!) generations.<br><br>
+                    Each cell has two states: alive or dead.<br>The rules for each alive cell are rather simple: if a cell has two or three neighbors that are alive, it survives to 
+                    the next generation. Otherwise, it dies due to overpopulation or loneliness. However the game has another rule: a dead cell becomes alive if it has three alive
+                    neighbors (at the end of the day it is the Game of <b>Life</b>, right?) 
                 </p>
-                <p>
-                    Some philosophical bs goes here 
-                </p>
+                <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/R9Plq-D1gEk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><span>Courtesy: <a href="https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A" target="_blank" rel="noopener">Numberphile</a></span></div>
             </div>
             <div class="display" id="conwayDisplay" style="display:none;">
                 <h1>John Horton Conway</h1>
-                <p>
+                <p style="width:40%;margin-top:18vh;">
                     John Horton Conway was an English mathematician active in the theory of finite groups, knot theory, number theory, 
                     combinatorial game theory and coding theory. He also made contributions to many branches of recreational mathematics, 
                     most notably the invention of the cellular automaton called the Game of Life.
-                </p>
-                <p>
+                    <br><br>
                     Born and raised in Liverpool, Conway spent the first half of his career at the University of Cambridge before moving 
                     to the United States, where he held the John von Neumann Professorship at Princeton University for the rest of his career.
-                    On 11 April 2020, at age 82, he died of complications from COVID-19.
+                    On 11 April 2020, at age 82, he died of complications from COVID-19.<br>
+                    <span style="text-align:right;width:100%;display:block;">—Abstract from Wikipedia (June, 2020)</span>
+                    <img style="width:60vh;height:60vh;position:absolute;right:15vw;top:50vh;transform:translate(15%,-50%);" src="/Assets/conwayPortrait.png" alt="Conway Portrait">
                 </p>
             </div>
             <div class="display" id="supportDisplay" style="display:none;">supportDisplay</div>

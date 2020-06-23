@@ -59,6 +59,7 @@ function frame(){
         window.cancelAnimationFrame(returnVal);
         document.getElementById("Begin").childNodes[0].textContent="Begin";
         document.getElementById("Begin").childNodes[2].className="fas fa-play";
+        return;
     }
     for(let i=0;i<change.length;i++){
         //console.log(change[i]);

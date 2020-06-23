@@ -78,7 +78,7 @@ div#GameOfLife{
     max-width:100%;
     height: 100vh;
 }
-/* This is not working, the background */
+
 div#Home{
     margin:0;
     padding:0;
@@ -92,6 +92,47 @@ div#Home{
 }
 div#Home>div.display{
     color:white;
+    text-align:justify;
+}
+div#Home p{
+    margin:5%;
+}
+div#Home h1{
+    text-align:center;
+}
+div#Home .video{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    left:50%;
+    width:48vw;
+    height:55vh;
+    background-color:white;
+    border-radius:10px;
+}
+.video>iframe{
+    width:80%;
+    height:70%;
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border:5px solid black;
+}
+.video>span{
+    position:absolute;
+    bottom:5%;
+    left:50%;
+    transform:translateX(-50%);
+    color:black;
+}
+.video a{
+    text-decoration:none;
+    font-weight:700;
+    color:rgb(45,45,45);
+}
+.video a:hover{
+    font-size:110%;
 }
 #mainTitle{
     color:white;
@@ -277,12 +318,12 @@ div#Home>div.display{
     width:0vw;
     overflow:hidden;
     height:10vh;
-    background-color:rgb(200,200,200);
+    background-color:rgb(255,255,255);
     z-index:2;
     position:absolute;
     transform:translateY(-120%);
     right:0;
-    transition: all 1s linear;
+    transition: all .8s ease-out;
     text-align:center;
 }
 .message > i{
