@@ -6,14 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Conway's Game of Life</title>
         <link rel="stylesheet" href="style.css">
-    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Raleway:wght@600&family=Roboto&display=swap" rel="stylesheet">    
+        <!-- <link rel="stylesheet" href="/Assets/fontawesome-free-5.13.1-web/css/all.css" > -->
+        <script src="https://kit.fontawesome.com/48cc1ed70f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/Assets/fontello-d209e484/css/fontello.css" >
+    </head>    
     <body id="body">
-        <div id="Home">
+            <div id="Home">
             <navbar>
                 <ul class="mainNav">
                     <li id="what">What is it?</li>
                     <li id="conway">About Conway</li>
-                    <li id="main" class="selected">A</li>
+                    <li id="main" class="selected"><i class="icon-GL-R-P"></i></li>
                     <li id="support">Support</li>
                     <li id="contact">Contact</li>
                 </ul>
@@ -22,54 +26,77 @@
             <div class="display" id="whatDisplay" style="display:none;">
                 <h1>The Game of life</h1>
                 <p>The Game of Life is a cellular automaton created by the British mathematician John Horton Conway in 1970.</p>
+                <p>
+                    It is a simple game in which you are able to decide the inital state of the cells in the Universe. 
+                    Each cell has two states: alive or dead.<br>The rules for each cell are rather simple: if a cell has two or three 
+                    neighbors alive, it survives to the next generation. Otherwise, it dies due to overpopulation or lonliness.
+                </p>
+                <p>
+                    Some philosophical bs goes here 
+                </p>
             </div>
-            <div class="display" id="conwayDisplay" style="display:none;">conwayDisplay</div>
+            <div class="display" id="conwayDisplay" style="display:none;">
+                <h1>John Horton Conway</h1>
+                <p>
+                    John Horton Conway was an English mathematician active in the theory of finite groups, knot theory, number theory, 
+                    combinatorial game theory and coding theory. He also made contributions to many branches of recreational mathematics, 
+                    most notably the invention of the cellular automaton called the Game of Life.
+                </p>
+                <p>
+                    Born and raised in Liverpool, Conway spent the first half of his career at the University of Cambridge before moving 
+                    to the United States, where he held the John von Neumann Professorship at Princeton University for the rest of his career.
+                    On 11 April 2020, at age 82, he died of complications from COVID-19.
+                </p>
+            </div>
             <div class="display" id="supportDisplay" style="display:none;">supportDisplay</div>
-            <div class="display" id="contactDisplay" style="display:none;">contactDisplay</div>
-            <a id="downButton" href="#GameOfLife">Play now</a>
+            <div class="display" id="contactDisplay" style="display:none;">
+                <p>If you found a bug or an issue, check the project on Github, or send us an email</p>
+                <p>Help us expand the library</p>
+            </div>
+            <a id="downButton" href="#GameOfLife">Play now
+                <!-- <i class="fas fa-angle-double-down"></i> -->
+                <br>
+                <i class="fas fa-arrow-down"></i> 
+            </a>
         </div>
         <div id="GameOfLife">
             <navbar>
                 <ul class="optionsNav">
                     <li class="dropdown">
-                        <button class="dropdownButton">Patterns</button>
+                        <button class="dropdownButton">Patterns <i class="fas fa-th-large"></i></i></button>
                         <div class="dropdownContent" style="left:0;">
-                            <button id="Save">Save</button>
-                            <button id="Load">Load</button>
-                            <button id="Library">Library</button>
+                            <button id="Save">Save <i class="fas fa-share-square"></i></button>
+                            <button id="Load">Load <i class="fas fa-file-upload"></i></button>
+                            <button id="Library">Library <i class="fas fa-book-open"></i></button>
                         </div>
                     </li>
-                    <li><button id="Begin">Begin</button></li>
-                    <li><button id="Reset">Reset</button></li>
-                    <li><button id="Clear">Clear</button></li>
+                    <li><button id="Begin"><span>Begin</span> <i class="fas fa-play"></i></button></li>
+                    <li><button id="Reset">Reset <i class="fas fa-window-restore"></i></button></li>
+                    <li><button id="Clear">Clear <i class="fas fa-broom"></i></button></li>
                     <li class="dropdown">
-                        <button class=dropdownButton>Settings</button>
+                        <button class=dropdownButton>Settings <i class="fas fa-cog"></i></button>
                         <div class="dropdownContent" style="right:0;">
-                            <button id="Grid">Grid</button>
-                            <button id="Msg">Allow Messages</button>
+                            <button id="Grid">Grid <i class="fas fa-border-all"></i></button>
+                            <button id="Msg">Allow Messages <i class="far fa-comment-alt"></i></button>
                         </div>
                 </ul>
             </navbar>
-            <!-- <div>
-                <p style="color:white;display:inline;position:relative;left:0;">Population: <span>-</span> </p>
-                <p style="color:white;display:inline;position:relative;left:100%;">Generation: <span>-</span> </p>
-            </div> -->
         </div>
         <div class="popup" id="GeneratedKey">
-            <p class="exit">&times;</p>
-            <p>Generated Key:</p>
+            <p class="exit"><i class="far fa-times-circle"></i></p>
+            <p>Generated Key</p>
             <textarea id="keyDisplay"></textarea>
-            <button id="Copy">Copy</button>
+            <button id="Copy">Copy <i class="far fa-clipboard"></i></button>
         </div>
         <div class="popup" id="LoadKey">
-            <p class="exit">&times;</p>
-            <p>Load Key:</p>
-            <textarea id="keySubmit"placeholder="Key"></textarea>
-            <button id="Submit">Load</button>
+            <p class="exit"><i class="far fa-times-circle"></i></p>
+            <p>Load Key</p>
+            <textarea id="keySubmit"placeholder="Key goes here"></textarea>
+            <button id="Submit">Load <i class="fas fa-arrow-up"></i></button>
         </div>
         <div class="library">
-            <p class="exit">&times;</p>
-            <p>Library</p>
+            <p class="exit"><i class="far fa-times-circle"></i></p>
+            <p style="margin-bottom:2vh;">Some interesting patterns</p>
             <button class="librarySectionBtn">Still lifes</button>
             <div class="librarySection">
                 <div id="O1368I1O89I1O150c" class="libraryElement">
@@ -206,7 +233,8 @@
             </div>
         </div>
         <div class="message" id="message">
-            <p></p>
+            <i class="fas fa-list"></i>
+            <p>Generic Message</p>
         </div>
         <script src="keygenv2.js"></script>
         <script src="main.js"></script>

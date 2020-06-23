@@ -1,7 +1,3 @@
-/*
-    Expand the library
-*/
-
 let rowsN = 75;
 let colN = 140;
 let offset = 30;
@@ -61,7 +57,8 @@ function frame(){
     }
     if(change.length == 0){
         window.cancelAnimationFrame(returnVal);
-        document.getElementById("Begin").textContent="Begin";
+        document.getElementById("Begin").childNodes[0].textContent="Begin";
+        document.getElementById("Begin").childNodes[2].className="fas fa-play";
     }
     for(let i=0;i<change.length;i++){
         //console.log(change[i]);
@@ -86,26 +83,30 @@ table.addEventListener("mouseup",function(){
 });
 
 document.getElementById("Begin").addEventListener("click",function(){
-    if(this.textContent=="Begin"){
+    if(this.childNodes[0].textContent=="Begin"){
         returnVal = window.requestAnimationFrame(frame);
-        this.textContent="Stop";
+        this.childNodes[0].textContent="Stop";
+        this.childNodes[2].className="fas fa-stop";
         if(localSave.key=="O2903")localSave = new KeyGenV2(rowsN,colN,offset);
     }
     else{
         window.cancelAnimationFrame(returnVal);
-        this.textContent="Begin";
+        this.childNodes[0].textContent="Begin";
+        this.childNodes[2].className="fas fa-play";
     }
 });
 document.getElementById("Clear").addEventListener("click",function(){
     window.cancelAnimationFrame(returnVal);
     resetBoard();
-    document.getElementById("Begin").textContent="Begin";
+    document.getElementById("Begin").childNodes[0].textContent="Begin";
+    document.getElementById("Begin").childNodes[2].className="fas fa-play";
     localSave = new KeyGenV2("O2903");
 });
 document.getElementById("Reset").addEventListener("click",function(){
     window.cancelAnimationFrame(returnVal);
     localSave.buildPattern(rowsN,colN,offset);
-    document.getElementById("Begin").textContent="Begin";
+    document.getElementById("Begin").childNodes[0].textContent="Begin";
+    document.getElementById("Begin").childNodes[2].className="fas fa-play";
 });
 document.getElementById("Save").addEventListener("click",function(){
     keySaver = new KeyGenV2(rowsN,colN,offset);
@@ -136,18 +137,21 @@ document.getElementById("Library").addEventListener("click",function(){
 let showGrid=true;
 document.getElementById("Grid").addEventListener("click",function(){
     if(showGrid){
-        document.documentElement.style.setProperty("--gridColor","black");
+        document.documentElement.style.setProperty("--gridColor","rgb(0,0,0)");
         document.documentElement.style.setProperty("--gridWeight","0px");
+        this.className="notselected";
         showGrid=false;
     }
     else{
-        document.documentElement.style.setProperty("--gridColor","grey");
+        document.documentElement.style.setProperty("--gridColor","rgb(100,100,100)");
         document.documentElement.style.setProperty("--gridWeight","1px");
         showGrid=true;
+        this.className="";
     }
 });
 document.getElementById("Msg").addEventListener("click",function(){
     allowMsg = allowMsg?false:true;
+    this.className = allowMsg?"":"notselected";
 });
 document.getElementById("what").addEventListener("click",changePage);
 document.getElementById("conway").addEventListener("click",changePage);
@@ -156,6 +160,7 @@ document.getElementById("support").addEventListener("click",changePage);
 document.getElementById("contact").addEventListener("click",changePage);
 
 function changePage(e){
+    // console.log(e.currentTarget);
     document.getElementById("whatDisplay").style="display:none;";
     document.getElementById("conwayDisplay").style="display:none;";
     document.getElementById("mainTitle").style="display:none;";
@@ -166,7 +171,7 @@ function changePage(e){
     document.getElementById("main").className="";
     document.getElementById("support").className="";
     document.getElementById("contact").className="";
-    switch(e.target.id){
+    switch(e.currentTarget.id){
         case "what":
             document.getElementById("whatDisplay").style="display:block;";
             document.getElementById("what").className="selected";
@@ -176,6 +181,7 @@ function changePage(e){
             document.getElementById("conway").className="selected";
             break;
         case "main":
+            console.log("in");
             document.getElementById("mainTitle").style="display:block;";
             document.getElementById("main").className="selected";
             break;
@@ -213,7 +219,8 @@ for(let i=0;i<libraryElements.length;i++){
 let allowMsg = true;
 function showMsg(msg){
     if(!allowMsg)return;
-    document.getElementById("message").childNodes[1].textContent=msg;
-    document.getElementById("message").style.maxWidth = "30vw";
-    setTimeout(function(){document.getElementById("message").style.maxWidth = "0";},4000)
+    console.log(true);
+    document.getElementById("message").childNodes[3].textContent=msg;
+    document.getElementById("message").style.width = "25vw";
+    setTimeout(function(){document.getElementById("message").style.width = "0";},4000);
 }

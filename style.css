@@ -1,9 +1,10 @@
 :root{
-    --gridColor:grey;
+    --gridColor:rgb(100,100,100);
     --gridWeight:1px;
 }
 html{
     scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
 }
 body{
     background-color: black;
@@ -39,29 +40,35 @@ p{
 }
 .popup{
     word-wrap:break-word;
-    background-color:grey;
+    background-color:white; /*grey*/
+    border-radius:10px;
     z-index:1;
     position:absolute;
     top:130vh; 
     left:50%;
     transform: translateX(-50%);
     width:30vw;
-    height:30vh;
+    height:35vh;
     text-align:center;
     display:none;
 }
 .popup >button{
     display:block;
     margin:auto;
+    margin-top:1.5vh;
+    color:white;
+    background-color:black;
 }
 .popup > p{
     font-size:3vh;
-    margin-top:0.5vh;
-    margin-bottom:0.5vh;
+    /* margin-top:0.5vh; */
+    margin-bottom:1vh;
 }
 textarea{
-    height:15vh;
+    height:18vh;
     width:20vw;
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid black;
 }
 div#GameOfLife{
     margin:0;
@@ -71,14 +78,17 @@ div#GameOfLife{
     max-width:100%;
     height: 100vh;
 }
+/* This is not working, the background */
 div#Home{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    background: black;
+    /* background: url(/Assets/back1.gif); */
+    background:black;
     width: 100vw;
     max-width:100%;
     height: 100vh;
+    
 }
 div#Home>div.display{
     color:white;
@@ -89,14 +99,14 @@ div#Home>div.display{
     text-align:center;
     position:relative;
     top:50%;
-    bottom:50%;
     left:50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-70%);
+    font-family: 'Raleway', sans-serif;
 }
 .mainNav{
     list-style-type:none;
     overflow:hidden;
-    background-color:white;
+    background-color:rgba(0,0,0,0);
     padding:0;
     margin:0;
     height:6vh;
@@ -110,13 +120,14 @@ div#Home>div.display{
     align-items:center;
     font-size:3vh;
     transition: all 0.5s;
+    background-color:white;
 }
 .mainNav>li.selected{
-    background-color:black;
+    background-color:rgba(0,0,0,1);
     color:white;
 }
 .mainNav>li:hover:not(.selected){
-    background-color:grey;
+    background-color:rgb(200,200,200); /*grey*/
     cursor:pointer;
 }
 #downButton{
@@ -128,6 +139,7 @@ div#Home>div.display{
     text-decoration:none;
     font-size:3vh;
     transition: all 0.2s;
+    text-align:center;
 }
 #downButton:hover{
     font-size:5vh;
@@ -158,8 +170,8 @@ div#Home>div.display{
     transition:all .5s;
 }
 .optionsNav Button:hover{
-    cursor:pointer;
-    background-color:grey;
+    cursor:pointer; 
+    background-color:rgb(200,200,200)!important; /*grey*/
 }
 .dropdownButton{
     cursor:pointer;
@@ -167,13 +179,12 @@ div#Home>div.display{
 }
 .dropdown{
     display:inline-block;
-    
 }
 .dropdownContent{
     display:none;
     position:absolute;
     top:106vh;
-    background-color:grey;
+    background-color:rgb(200,200,200); /*grey*/
     width:20%;
     height:4vh;
     z-index:2;
@@ -181,6 +192,10 @@ div#Home>div.display{
 .dropdownContent button{
     color:black;
     display:block;
+}
+.dropdownContent>button.notselected{
+    background-color:rgb(45,45,45);
+    color:white;
 }
 .dropdown:hover .dropdownContent{
     display: block;
@@ -197,16 +212,21 @@ div#Home>div.display{
     text-align:center;
     padding:2vh;
     overflow:scroll;
+    font-size:3vh;
+    border-radius:10px;
 }
 .librarySectionBtn{
     width:100%;
-    height:6vh;    
+    height:6vh;
+    color:white;
+    background-color:black;
+    font-size:2vh;
 }
 .librarySectionBtn:hover{
     cursor:pointer;
 }
 .librarySection{
-    border:1px solid black;
+    border:1px solid white;
     max-height:0;
     overflow:hidden;
     transition:all .3s ease-out;
@@ -216,13 +236,14 @@ div#Home>div.display{
     height:15vh;
     position:inline;
     float:left;
-    border:1px solid black;
+    margin:5px;
 }
 .libraryElement > img{
-    width:15vh;
-    height:15vh;
+    width:16vh;
+    height:16vh;
 }
 .libraryElement > p{
+    width:16vh;
     position:relative;
     z-index:2;
     bottom:7vh;
@@ -230,7 +251,7 @@ div#Home>div.display{
     color:white;
     background-color: rgba(0,0,0,.5);
     word-wrap:break-word;
-    font-size:.8vw;
+    font-size:1vw;
 }
 .libraryElement:hover{
     cursor:pointer;
@@ -240,31 +261,43 @@ div#Home>div.display{
     visibility: visible;
 }
 .exit{
+    top:1vh;
     display:inline;
     margin-right:0;
     padding:0;
     position:relative;
     left:45%;
-    font-size:30px;
     font-weight:bold;
 }
 .exit:hover{
     cursor:pointer;
-    color:red;
+    color:rgb(100,100,100);
 }
 .message{
-    max-width:0vw;
+    width:0vw;
     overflow:hidden;
     height:10vh;
-    background-color:white;
+    background-color:rgb(200,200,200);
     z-index:2;
     position:absolute;
-    transform:translateY(-100%);
+    transform:translateY(-120%);
     right:0;
+    transition: all 1s linear;
     text-align:center;
-    transition: all 1s ease-out;
+}
+.message > i{
+    display:inline;
+    position:absolute;
+    left:2.5vw;
+    top:5vh;
+    transform: translateY(-50%);
 }
 .message > p{
-    width:30vw;
-    margin-top:3vh
+    position:relative;
+    width:15vw;
+    top:5vh;
+    left:12.4vw;
+    transform:translate(-45%,-50%);
+    word-wrap:break-word;
+    overflow:hidden;
 }
