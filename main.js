@@ -1,3 +1,9 @@
+/*
+    Pending:
+        -Help manual
+        -Support page
+        -Font-size of main page
+*/
 let rowsN = 75;
 let colN = 140;
 let offset = 30;
@@ -57,6 +63,7 @@ function frame(){
     }
     if(change.length == 0){
         window.cancelAnimationFrame(returnVal);
+        showMsg("Congrats! You reached the maximum entropy");
         document.getElementById("Begin").childNodes[0].textContent="Begin";
         document.getElementById("Begin").childNodes[2].className="fas fa-play";
         return;
@@ -70,13 +77,16 @@ function frame(){
 }
 function toggle(event){
     if(!flag)return;
-    if((event.target).className != "alive")(event.target).className = "alive"
+    if(event.altKey){
+        if((event.target).className == "alive")(event.target).className = "dead"
+    }
+    else if((event.target).className != "alive")(event.target).className = "alive"
 }
 
 table.addEventListener("mousedown",function(event){
     flag=true;
     if((event.target).className == "alive")(event.target).className =  "dead";
-    else (event.target).className = "alive"
+    else if(!event.altKey)(event.target).className = "alive"
 });
 table.addEventListener("mouseup",function(){
     flag=false;
@@ -214,6 +224,7 @@ for(let i=0;i<libraryElements.length;i++){
         let pat = new KeyGenV2(this.id);
         resetBoard();
         pat.buildPattern(rowsN,colN,offset);
+        localSave = pat;
         document.getElementsByClassName("library")[0].style.display="none";
     });
 }

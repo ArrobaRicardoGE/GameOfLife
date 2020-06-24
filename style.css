@@ -20,6 +20,7 @@ table{
     box-sizing:border-box; 
     border-collapse:collapse;
     outline:1.5px solid white;
+    user-select:none;
 }
 td{
     border: var(--gridWeight) solid var(--gridColor);
@@ -100,6 +101,35 @@ div#Home p{
 div#Home h1{
     text-align:center;
 }
+div#Home .card{
+    position:absolute;
+    color:black;
+    background-color:white;
+    border-radius:10px;
+    padding:10px;
+    box-sizing:border-box;
+    text-align:center;
+}
+div#Home .card>a{
+    width:40%;
+    height:8%;
+    color:white;
+    background-color:black;
+    border-radius:10px;
+    font-size:2.5vh;
+    position:relative;
+    justify-content:center;
+    align-items:center;
+    border: 2px solid white;
+    display:inline-flex;
+    text-decoration:none;
+} 
+div#Home .card>a:hover{
+    color:black;
+    background-color:white;
+    border: 2px solid black;
+    cursor:pointer;
+} 
 div#Home .video{
     position:absolute;
     top:50%;

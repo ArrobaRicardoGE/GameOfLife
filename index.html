@@ -7,7 +7,6 @@
         <title>Conway's Game of Life</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Raleway:wght@600&family=Roboto&display=swap" rel="stylesheet">    
-        <!-- <link rel="stylesheet" href="/Assets/fontawesome-free-5.13.1-web/css/all.css" > -->
         <script src="https://kit.fontawesome.com/48cc1ed70f.js" crossorigin="anonymous" SameSite="none"></script>
         <link rel="stylesheet" href="/Assets/fontello-d209e484/css/fontello.css" >
     </head>    
@@ -50,11 +49,24 @@
             </div>
             <div class="display" id="supportDisplay" style="display:none;">supportDisplay</div>
             <div class="display" id="contactDisplay" style="display:none;">
-                <p>If you found a bug or an issue, check the project on Github, or send us an email</p>
-                <p>Help us expand the library</p>
+                <div class="card" style="width:30vw;height:70vh;top:50vh;left:25vw;transform:translate(-50%,-50%)">
+                    <h1>Found a bug?</h1>
+                    <p>We are happy to fix it!</p>
+                    <a href="mailto:ricardoarroba@outlook.com"><i class="fas fa-envelope" style="margin-right:5%;"></i> eMail</a>
+                    <h1>Have an issue or a feature request?</h1>
+                    <p>We would love to hear from you</p>
+                    <a href="https://github.com/ArrobaRicardoGE/GameOfLife" target="_blank" rel="noopener"><i class="fab fa-github" style="margin-right:5%;"></i> Github</a href="#">
+                </div>
+                <div class="card" style="width:30vw;height:70vh;top:50vh;right:25vw;transform:translate(50%,-50%)">
+                    <h1>Help us to expand library</h1>
+                    <p>Send us an email with the Key<sup>*</sup> of the pattern and the category you consider appropiate and 
+                        we will work on it.<br><br>
+                        Thanks to the people who sent their patterns:<br>
+                    </p>
+                    <p style="color:grey;position:absolute;bottom:0;"><sup>*</sup><i>You can generate the key in Patterns &rarr; Save</i></p>
+                </div>
             </div>
             <a id="downButton" href="#GameOfLife">Play now
-                <!-- <i class="fas fa-angle-double-down"></i> -->
                 <br>
                 <i class="fas fa-arrow-down"></i> 
             </a>
