@@ -1,20 +1,14 @@
-/*
-    Pending:
-        -Help manual
-        -Support page
-        -Font-size of main page
-*/
 let rowsN = 75;
 let colN = 140;
-let offset = 30;
-let returnVal=null;
-let flag=false;
-let flagDot = true;
+let offset = 40;
+let returnVal = null;
+let flag = false;
 let keySaver = null;
 let localSave = new KeyGenV2("O2903");
+let textVariables = document.getElementById("textVariables");
 
 let table = document.createElement("table");
-document.getElementById("GameOfLife").insertBefore(table,document.getElementById("Buttons"));
+document.getElementById("GameOfLife").appendChild(table);
 for(let i=0;i<rowsN+offset;i++){
     let tr = document.createElement("tr");
     table.appendChild(tr);
@@ -40,11 +34,13 @@ function resetBoard(){
            document.getElementById(i+"-"+j).className="dead";
         }
     }
+    generation = 0;
+    document.getElementById("Board").childNodes[1].textContent = textVariables.children[2].textContent+generation;
 }
 
+let generation = 0;
 function frame(){
     let change = [];
-    let population=0,generation=0;
     for(let i=0;i<rowsN+offset;i++){
         for(let j=0;j<colN+offset;j++){
             let alive=0;
@@ -56,18 +52,19 @@ function frame(){
             if(verifyState(i+1,j-1))alive++;
             if(verifyState(i-1,j+1))alive++;
             if(verifyState(i-1,j-1))alive++;
-            population+=alive;
             if(document.getElementById(i+"-"+j).className == "dead" && alive==3)change.push((i+"-"+j));
             else if(document.getElementById(i+"-"+j).className == "alive" && alive!=2 && alive!=3)change.push((i+"-"+j));
         }
     }
     if(change.length == 0){
         window.cancelAnimationFrame(returnVal);
-        showMsg("Congrats! You reached the maximum entropy");
-        document.getElementById("Begin").childNodes[0].textContent="Begin";
+        showMsg(textVariables.children[3].textContent);
+        document.getElementById("Begin").childNodes[0].textContent=textVariables.children[0].textContent;
         document.getElementById("Begin").childNodes[2].className="fas fa-play";
         return;
     }
+    generation++;
+    document.getElementById("Board").childNodes[1].textContent = textVariables.children[2].textContent+generation;
     for(let i=0;i<change.length;i++){
         //console.log(change[i]);
         if(document.getElementById(change[i]).className=="alive")document.getElementById(change[i]).className="dead";
@@ -94,29 +91,30 @@ table.addEventListener("mouseup",function(){
 });
 
 document.getElementById("Begin").addEventListener("click",function(){
-    if(this.childNodes[0].textContent=="Begin"){
+    if(this.childNodes[0].textContent==textVariables.children[0].textContent){
         returnVal = window.requestAnimationFrame(frame);
-        this.childNodes[0].textContent="Stop";
+        this.childNodes[0].textContent=textVariables.children[1].textContent;
         this.childNodes[2].className="fas fa-stop";
         if(localSave.key=="O2903")localSave = new KeyGenV2(rowsN,colN,offset);
     }
     else{
         window.cancelAnimationFrame(returnVal);
-        this.childNodes[0].textContent="Begin";
+        this.childNodes[0].textContent=textVariables.children[0].textContent;
         this.childNodes[2].className="fas fa-play";
     }
 });
 document.getElementById("Clear").addEventListener("click",function(){
     window.cancelAnimationFrame(returnVal);
     resetBoard();
-    document.getElementById("Begin").childNodes[0].textContent="Begin";
+    document.getElementById("Begin").childNodes[0].textContent=textVariables.children[0].textContent;
     document.getElementById("Begin").childNodes[2].className="fas fa-play";
     localSave = new KeyGenV2("O2903");
 });
 document.getElementById("Reset").addEventListener("click",function(){
     window.cancelAnimationFrame(returnVal);
+    resetBoard();
     localSave.buildPattern(rowsN,colN,offset);
-    document.getElementById("Begin").childNodes[0].textContent="Begin";
+    document.getElementById("Begin").childNodes[0].textContent=textVariables.children[0].textContent;
     document.getElementById("Begin").childNodes[2].className="fas fa-play";
 });
 document.getElementById("Save").addEventListener("click",function(){
@@ -133,14 +131,14 @@ document.getElementById("Submit").addEventListener("click",function(){
     let keyLoad = new KeyGenV2(document.getElementById("keySubmit").value);
     localSave = keyLoad;
     resetBoard();
-    showMsg(keyLoad.buildPattern(rowsN,colN,offset));
+    showMsg(keyLoad.buildPattern(rowsN,colN,offset)?textVariables.children[5].textContent:textVariables.children[6].textContent);
     document.getElementById("LoadKey").style="display:none;";
 });
 document.getElementById("Copy").addEventListener("click",function(){
     document.getElementById("keyDisplay").select();
     document.execCommand("copy");
     document.getElementById("GeneratedKey").style="display:none;";
-    showMsg("Copied to clipboard!");
+    showMsg(textVariables.children[4].textContent);
 });
 document.getElementById("Library").addEventListener("click",function(){
     document.getElementsByClassName("library")[0].style.display="block";
@@ -161,7 +159,7 @@ document.getElementById("Grid").addEventListener("click",function(){
     }
 });
 document.getElementById("Msg").addEventListener("click",function(){
-    allowMsg = allowMsg?false:true;
+    allowMsg = !allowMsg;
     this.className = allowMsg?"":"notselected";
 });
 document.getElementById("what").addEventListener("click",changePage);
@@ -210,7 +208,7 @@ for(let i=0;i<libraryContentBtns.length;i++){
     libraryContentBtns[i].addEventListener("click",function(){
         let libraryContent = this.nextElementSibling;
         libraryContent.style.maxHeight = (libraryContent.style.maxHeight == "0px" || libraryContent.style.maxHeight == 0)?libraryContent.scrollHeight+"px":0;
-    })
+    })  
 }
 let exitBtns = document.getElementsByClassName("exit");
 for(let i=0;i<exitBtns.length;i++){
@@ -236,3 +234,6 @@ function showMsg(msg){
     document.getElementById("message").style.width = "25vw";
     setTimeout(function(){document.getElementById("message").style.width = "0";},4000);
 }
+document.getElementById("Help").addEventListener("click",function(){
+    document.getElementsByClassName("library")[1].style.display="block";
+})

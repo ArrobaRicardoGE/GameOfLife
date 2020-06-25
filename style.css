@@ -97,9 +97,11 @@ div#Home>div.display{
 }
 div#Home p{
     margin:5%;
+    font-size:1.2vw;
 }
 div#Home h1{
     text-align:center;
+    font-size:2.5vw;
 }
 div#Home .card{
     position:absolute;
@@ -109,6 +111,7 @@ div#Home .card{
     padding:10px;
     box-sizing:border-box;
     text-align:center;
+    overflow:auto;
 }
 div#Home .card>a{
     width:40%;
@@ -282,7 +285,7 @@ div#Home .video{
     background-color:white;
     text-align:center;
     padding:2vh;
-    overflow:scroll;
+    overflow:auto;
     font-size:3vh;
     border-radius:10px;
 }
@@ -371,4 +374,33 @@ div#Home .video{
     transform:translate(-45%,-50%);
     word-wrap:break-word;
     overflow:hidden;
+}
+div#Board{
+    color:white;
+    position:absolute;
+    top:192.5vh;
+    left:50vw;
+    transform:translateX(-50%);
+}
+div#Board p{
+    float:left;
+    margin-right:1.5vw;
+    font-size: 1vw
+}
+div#Help{
+    width:5vw;
+    height:5vh;
+    color:white;
+    position:absolute;
+    top:190vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:3vh;
+    transition: all 0.1s ease-out;
+}
+div#Help:hover{
+    cursor:pointer;
+    color:rgb(200,200,200);
+    font-size:180%;
 }

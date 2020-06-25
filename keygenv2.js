@@ -44,13 +44,13 @@ class KeyGenV2{
             i=j-1;
         }
         let count=0;
-        if(iostring.length!=n*m)return("Error: Invalid key. Verify its integrity");
+        if(iostring.length!=n*m)return(false);
         for(let i=of/2;i<n+of/2;i++){
             for(let j=of/2;j<m+of/2;j++){   
                 document.getElementById(i+"-"+j).className = (iostring[count]=="I"?"alive":"dead");
                 count++;
             }
         }
-        return("Pattern loaded!");
+        return(true);
     }
 }
