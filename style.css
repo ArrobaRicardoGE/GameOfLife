@@ -103,7 +103,7 @@ div#Home h1{
     text-align:center;
     font-size:2.5vw;
 }
-div#Home .card{
+.card{
     position:absolute;
     color:black;
     background-color:white;
@@ -113,7 +113,7 @@ div#Home .card{
     text-align:center;
     overflow:auto;
 }
-div#Home .card>a{
+.card>a{
     width:40%;
     height:8%;
     color:white;
@@ -127,7 +127,7 @@ div#Home .card>a{
     display:inline-flex;
     text-decoration:none;
 } 
-div#Home .card>a:hover{
+.card>a:hover{
     color:black;
     background-color:white;
     border: 2px solid black;
@@ -403,4 +403,30 @@ div#Help:hover{
     cursor:pointer;
     color:rgb(200,200,200);
     font-size:180%;
+}
+.pickLan>h1{
+    color:white;
+    font-size: 10vw;
+    text-align:center;
+    font-family: 'Raleway', sans-serif;
+    user-select:none;
+}
+
+.pickLan .card {
+    border: 2px solid black;
+    text-decoration:none;
+}
+
+.pickLan .card h1{
+    font-size:4vw;
+    margin:0;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+.pickLan .card:hover{
+    border: 5px solid white;
+    color: white;
+    background-color:black;
+    cursor:pointer;
 }
