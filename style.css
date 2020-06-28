@@ -84,7 +84,7 @@ div#Home{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    /* background: url(/Assets/back1.gif); */
+    /* background: url(Assets/back1.gif); */
     background:black;
     width: 100vw;
     max-width:100%;
