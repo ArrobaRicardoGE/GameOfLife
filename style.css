@@ -62,7 +62,6 @@ p{
 }
 .popup > p{
     font-size:3vh;
-    /* margin-top:0.5vh; */
     margin-bottom:1vh;
 }
 textarea{
@@ -84,7 +83,6 @@ div#Home{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    /* background: url(Assets/back1.gif); */
     background:black;
     width: 100vw;
     max-width:100%;
@@ -271,6 +269,12 @@ div#Home .video{
     background-color:rgb(45,45,45);
     color:white;
 }
+/* .dropdownContent a{
+    color:black;
+    display:block;
+    text-decoration:none;
+} */
+
 .dropdown:hover .dropdownContent{
     display: block;
 }

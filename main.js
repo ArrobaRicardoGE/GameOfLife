@@ -1,3 +1,10 @@
+/*
+Conway´s Game of Life
+ArrobaRicardoGE
+Version 1.0 - June 2020
+*/
+
+//Variables
 let rowsN = 75;
 let colN = 140;
 let offset = 40;
@@ -7,6 +14,7 @@ let keySaver = null;
 let localSave = new KeyGenV2("O2903");
 let textVariables = document.getElementById("textVariables");
 
+//Table creation
 let table = document.createElement("table");
 document.getElementById("GameOfLife").appendChild(table);
 for(let i=0;i<rowsN+offset;i++){
@@ -23,6 +31,7 @@ for(let i=0;i<rowsN+offset;i++){
     }
 }
 
+//Table functions
 function verifyState(i,j){
     if(i<0 || i>=rowsN+offset || j<0 || j>=colN+offset || document.getElementById(i+"-"+j).className=="dead")return false;
     return true;
@@ -38,6 +47,7 @@ function resetBoard(){
     document.getElementById("Board").childNodes[1].textContent = textVariables.children[2].textContent+generation;
 }
 
+//Animation
 let generation = 0;
 function frame(){
     let change = [];
@@ -66,7 +76,6 @@ function frame(){
     generation++;
     document.getElementById("Board").childNodes[1].textContent = textVariables.children[2].textContent+generation;
     for(let i=0;i<change.length;i++){
-        //console.log(change[i]);
         if(document.getElementById(change[i]).className=="alive")document.getElementById(change[i]).className="dead";
         else document.getElementById(change[i]).className="alive";
     }
@@ -80,6 +89,8 @@ function toggle(event){
     else if((event.target).className != "alive")(event.target).className = "alive"
 }
 
+
+//Event listeners
 table.addEventListener("mousedown",function(event){
     flag=true;
     if((event.target).className == "alive")(event.target).className =  "dead";
@@ -169,7 +180,6 @@ document.getElementById("support").addEventListener("click",changePage);
 document.getElementById("contact").addEventListener("click",changePage);
 
 function changePage(e){
-    // console.log(e.currentTarget);
     document.getElementById("whatDisplay").style="display:none;";
     document.getElementById("conwayDisplay").style="display:none;";
     document.getElementById("mainTitle").style="display:none;";
